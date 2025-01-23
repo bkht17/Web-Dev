@@ -1,0 +1,62 @@
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+}
+
+body {
+  font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 1rem;
+  text-align: left;
+}
+
+header {
+  padding: 0 5%;
+  font-size: 13px;
+  height: 54px;
+  margin-bottom: 2px;
+  z-index: 502;
+  margin-top: 0;
+  margin: 0;
+  box-sizing: border-box;
+  min-width: 280px;
+  width: 100%;
+  color: #262626;
+}
+
+#microsoft-logo {
+  padding: 16px 6px 16px 10px;
+  float: left;
+  height: 100%;
+  margin-top: 1px;
+  width: 137px;
+  outline-offset: -2px;
+}
+
+#microsoft-image {
+  margin-top: -3px;
+  width: 108px;
+  display: block;
+  height: auto;
+  overflow-x: visible;
+}
+
+.list_header {
+  padding: 16px 8px 10px;
+  border: 1px solid transparent;
+  display: inline-block;
+  height: 48px;
+  outline-offset: -2px;
+  margin-top: 1px;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header > ul > li {
+  display: inline-block;
+}

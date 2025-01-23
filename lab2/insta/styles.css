@@ -1,0 +1,249 @@
+body {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+  min-height: 100vh;
+  background: black;
+  flex-direction: column;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+  margin-left: -50px;
+  margin-top: -20px;
+}
+
+.insta-font-logo {
+  width: 175px;
+  height: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  filter: invert(1);
+}
+
+.main {
+  color: white;
+  background-color: black;
+  border: 1px solid #434343;
+  padding: 10px 20px;
+  transition: transform 0.2s;
+  width: 300px;
+  height: 380px;
+  text-align: center;
+  margin-top: -200px;
+}
+
+label {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: left;
+  font-weight: bold;
+}
+
+input {
+  display: block;
+  width: 270px;
+  height: 38px;
+  background-color: #121212;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #434343;
+  border-radius: 2px;
+  margin: auto;
+  color: white;
+}
+
+button {
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  background-color: #12539c;
+  font-size: 16px;
+  width: 270px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register {
+  margin-right: 150px;
+  margin-left: -21px;
+  margin-top: 28px;
+  color: white;
+  background-color: black;
+  border: 1px solid #434343;
+  padding: 10px 20px;
+  transition: transform 0.2s;
+  width: 300px;
+  height: 35px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 7px;
+}
+
+.phone {
+  position: relative;
+  width: 600px;
+  height: 700px;
+  background: url("pics/home-phones-2x.png") no-repeat center center;
+  background-size: contain;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
+}
+
+.slideshow {
+  position: absolute;
+  width: 240px;
+  height: 530px;
+  overflow: hidden;
+  border-radius: 20px;
+  left: 35%;
+  top: 4%;
+  margin-top: 42px;
+  margin-left: -3px;
+}
+
+.slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fade 12s infinite;
+  margin-top: -5px;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  41% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.slideshow img:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.slideshow img:nth-child(2) {
+  animation-delay: 3s;
+}
+
+.slideshow img:nth-child(3) {
+  animation-delay: 6s;
+}
+
+.slideshow img:nth-child(4) {
+  animation-delay: 9s;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.separator .line {
+  flex: 1;
+  height: 1px;
+  background-color: #434343;
+}
+
+.separator p {
+  margin: 0 10px;
+  font-size: 14px;
+  color: #8e8e8e;
+}
+
+.facebook-icon {
+  width: 20px;
+  margin-right: 8px;
+}
+
+.facebook-login a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.facebook-login:hover {
+  color: white;
+}
+
+.apps {
+  width: 143px;
+  height: 40px;
+}
+
+.image_apps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.f-lg-footer {
+  width: 980px;
+  margin: 75x auto;
+  margin-bottom: 10px;
+  height: 2.5rem;
+}
+
+.f-lg-footer > ul > li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.f-lg-footer > ul {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.f-lg-footer > ul > li > a {
+  text-decoration: none;
+  color: #969696;
+  font-size: 12.5px;
+}
