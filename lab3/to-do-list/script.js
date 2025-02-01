@@ -39,7 +39,6 @@ function createTaskElement(text, completed = false) {
   return li;
 }
 
-// Функция для добавления новой задачи
 function addTask() {
   const inputBox = document.getElementById("input-box");
   const taskList = document.getElementById("task-list");
@@ -47,12 +46,11 @@ function addTask() {
   if (inputBox.value.trim() !== "") {
     const li = createTaskElement(inputBox.value);
     taskList.appendChild(li);
-    inputBox.value = ""; // Очищаем поле ввода
-    saveTasks(); // Сохраняем задачи после добавления
+    inputBox.value = "";
+    saveTasks();
   }
 }
 
-// Функция для сохранения задач в localStorage
 function saveTasks() {
   const taskList = document.getElementById("task-list");
   const tasks = [];
@@ -66,5 +64,4 @@ function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// Загружаем задачи при загрузке страницы
 window.onload = loadTasks;
