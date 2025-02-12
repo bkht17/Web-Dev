@@ -14,8 +14,7 @@ export class AppComponent {
   products: Product[] = [
     {
       id: 1,
-      imageUrl:
-        'https://resources.cdn-kaspi.kz/img/m/p/h1b/h77/84526902706206.jpg?format=gallery-medium',
+      imageUrl: '/assets/images/ip16.jpeg',
       name: 'iPhone 16 Pro Max',
       description: 'Apple iPhone 14 Pro Max 256GB',
       rating: 4.9,
@@ -23,7 +22,7 @@ export class AppComponent {
     },
     {
       id: 2,
-      imageUrl: '/lab4/task2/kaspi_project/public/images/s25ultra.png.jpeg',
+      imageUrl: '/assets/images/s25ultra.jpeg',
       name: 'Samsung Galaxy S25 Ultra',
       description: 'Samsung Galaxy S23 Ultra 512GB',
       rating: 4.8,
@@ -31,7 +30,7 @@ export class AppComponent {
     },
     {
       id: 3,
-      imageUrl: 'lab4/task2/kaspi_project/public/images/xiaomi.jpg',
+      imageUrl: '/assets/images/xiaomi.jpg',
       name: 'Xiaomi Redmi Note 12',
       description: 'Xiaomi Redmi Note 12 256GB',
       rating: 4.7,
@@ -39,7 +38,7 @@ export class AppComponent {
     },
     {
       id: 4,
-      imageUrl: 'lab4/task2/kaspi_project/public/images/macbook.jpg',
+      imageUrl: 'assets/images/macbook.jpg',
       name: 'MacBook Air M2',
       description: 'Apple MacBook Air M2 16GB/512GB',
       rating: 4.9,
@@ -47,7 +46,7 @@ export class AppComponent {
     },
     {
       id: 5,
-      imageUrl: 'lab4/task2/kaspi_project/public/images/asusrog.jpg',
+      imageUrl: 'assets/images/asusrog.jpg',
       name: 'ASUS ROG Zephyrus G14',
       description: 'ASUS ROG Zephyrus G14 Ryzen 9/32GB/1TB',
       rating: 4.8,
@@ -55,7 +54,7 @@ export class AppComponent {
     },
     {
       id: 6,
-      imageUrl: 'lab4/task2/kaspi_project/public/images/ps5.jpg',
+      imageUrl: 'assets/images/ps5.jpg',
       name: 'Sony PlayStation 5',
       description: 'Sony PlayStation 5 825GB',
       rating: 4.9,
@@ -63,7 +62,7 @@ export class AppComponent {
     },
     {
       id: 7,
-      imageUrl: 'lab4/task2/kaspi_project/public/images/samsungqled.jpg',
+      imageUrl: 'assets/images/samsungqled.jpg',
       name: 'Samsung QLED 4K',
       description: 'Samsung 55" QLED 4K Smart TV',
       rating: 4.7,
@@ -71,7 +70,7 @@ export class AppComponent {
     },
     {
       id: 8,
-      imageUrl: 'lab4/task2/kaspi_project/public/images/dyson.jpg',
+      imageUrl: 'assets/images/dyson.jpg',
       name: 'Dyson V15 Detect',
       description: 'Dyson V15 Detect Cordless Vacuum',
       rating: 4.9,
@@ -79,7 +78,7 @@ export class AppComponent {
     },
     {
       id: 9,
-      imageUrl: 'lab4/task2/kaspi_project/public/images/applewatch.jpeg',
+      imageUrl: 'assets/images/applewatch.jpeg',
       name: 'Apple Watch Series 8',
       description: 'Apple Watch Series 8 45mm GPS',
       rating: 4.8,
@@ -87,7 +86,7 @@ export class AppComponent {
     },
     {
       id: 10,
-      imageUrl: 'lab4/task2/kaspi_project/public/images/gopro.jpg',
+      imageUrl: 'assets/images/gopro.jpg',
       name: 'GoPro Hero 11',
       description: 'GoPro Hero 11 Black 5K',
       rating: 4.9,
