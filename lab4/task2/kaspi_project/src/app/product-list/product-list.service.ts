@@ -6,18 +6,21 @@ import { ProductList } from '../interface/product-list.interface';
 })
 export class ProductListService {
   protected productList: ProductList[] = [
-    { id: 1, name: 'phone' },
+    { id: 1, name: 'phone', imageUrl: 'assets/images/gopro.jpg' },
     {
       id: 2,
       name: 'laptop',
+      imageUrl: 'assets/images/gopro.jpg',
     },
     {
       id: 3,
       name: 'tv',
+      imageUrl: 'assets/images/gopro.jpg',
     },
     {
       id: 4,
-      name: 'headphones',
+      name: 'IOT',
+      imageUrl: 'assets/images/gopro.jpg',
     },
   ];
 

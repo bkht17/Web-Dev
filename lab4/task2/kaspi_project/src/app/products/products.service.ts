@@ -14,6 +14,7 @@ export class ProductsService {
       rating: 4.9,
       link: 'https://kaspi.kz/shop/p/apple-iphone-16-pro-max-256gb-zolotistyi-123890547/?c=750000000',
       likes: 0,
+      categoryid: 1,
     },
     {
       id: 2,
@@ -23,6 +24,7 @@ export class ProductsService {
       rating: 4.8,
       link: 'https://kaspi.kz/shop/p/samsung-galaxy-s25-ultra-5g-12-gb-256-gb-seryi-133434844/?c=750000000',
       likes: 0,
+      categoryid: 1,
     },
     {
       id: 3,
@@ -32,6 +34,7 @@ export class ProductsService {
       rating: 4.7,
       link: 'https://kaspi.kz/shop/p/xiaomi-redmi-note-12-pro-5g-nfc-8-gb-256-gb-chernyi-109772767/?c=750000000',
       likes: 0,
+      categoryid: 1,
     },
     {
       id: 4,
@@ -41,6 +44,7 @@ export class ProductsService {
       rating: 4.9,
       link: 'https://kaspi.kz/shop/p/apple-macbook-air-13-2022-13-6-8-gb-ssd-256-gb-macos-mlxw3-105933794/?c=750000000',
       likes: 0,
+      categoryid: 2,
     },
     {
       id: 5,
@@ -50,6 +54,7 @@ export class ProductsService {
       rating: 4.8,
       link: 'https://kaspi.kz/shop/p/asus-rog-zephyrus-g14-14-16-gb-ssd-1000-gb-bez-os-ga403uu-qs077-90nr0hz2-m003s0-118634611/?c=750000000',
       likes: 0,
+      categoryid: 2,
     },
     {
       id: 6,
@@ -59,6 +64,7 @@ export class ProductsService {
       rating: 4.9,
       link: 'https://kaspi.kz/shop/p/sony-playstation-5-slim-114696098/?c=750000000',
       likes: 0,
+      categoryid: 4,
     },
     {
       id: 7,
@@ -68,6 +74,7 @@ export class ProductsService {
       rating: 4.7,
       link: 'https://kaspi.kz/shop/p/samsung-qe85q60dauxce-216-sm-chernyi-119285288/?c=750000000',
       likes: 0,
+      categoryid: 3,
     },
     {
       id: 8,
@@ -77,6 +84,7 @@ export class ProductsService {
       rating: 4.9,
       link: 'https://kaspi.kz/shop/p/dyson-v15-detect-absolute-serebristyi-110975356/?c=750000000',
       likes: 0,
+      categoryid: 4,
     },
     {
       id: 9,
@@ -86,6 +94,7 @@ export class ProductsService {
       rating: 4.8,
       link: 'https://kaspi.kz/shop/p/apple-watch-se-gps-gen-2-2024-s-m-40-mm-bezhevyi-129172890/?c=750000000',
       likes: 0,
+      categoryid: 4,
     },
     {
       id: 10,
@@ -95,6 +104,7 @@ export class ProductsService {
       rating: 4.9,
       link: 'https://kaspi.kz/shop/p/ekshn-kamera-gopro-hero-13-black-edition-123482859/?c=750000000',
       likes: 0,
+      categoryid: 4,
     },
   ];
 
@@ -102,8 +112,8 @@ export class ProductsService {
     return this.products;
   }
 
-  getProductById(id: Number): Product | undefined {
-    return this.products.find((product) => product.id === id);
+  getProductById(categoryid: Number): Product | undefined {
+    return this.products.find((product) => product.categoryid === categoryid);
   }
 
   constructor() {}

@@ -1,35 +1,36 @@
 import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProductsComponent } from '../products/products.component';
 import { Product } from '../interface/products.interface';
 import { ProductsService } from '../products/products.service';
-import { ProductList } from '../interface/product-list.interface';
-import { ProductListComponent } from '../product-list/product-list.component';
-import { ProductListService } from '../product-list/product-list.service';
 
 @Component({
-  selector: 'app-home',
-  imports: [ProductsComponent, ProductListComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  selector: 'app-category',
+  imports: [ProductsComponent],
+  templateUrl: './category.component.html',
+  styleUrl: './category.component.scss',
 })
-export class HomeComponent {
-  productList: ProductList[] = [];
+export class CategoryComponent {
   products: Product[] = [];
-
-  productListService: ProductListService = inject(ProductListService);
   productService: ProductsService = inject(ProductsService);
+  route: ActivatedRoute = inject(ActivatedRoute);
 
   constructor() {
-    this.products = this.productService.getAllProducts();
-    this.productList = this.productListService.getAllCategories();
+    this.route.paramMap.subscribe((params) => {
+      const categoryId = Number(params.get('categoryid')); // Получаем categoryid из URL
+      this.loadProducts(categoryId);
+    });
   }
 
-  loadProducts() {
-    this.products = this.productService.getAllProducts().map((product) => ({
-      ...product,
-      likes:
-        Number(localStorage.getItem(`likes_${product.id}`)) || product.likes,
-    }));
+  loadProducts(categoryId: number) {
+    this.products = this.productService
+      .getAllProducts()
+      .filter((product) => product.categoryid === categoryId)
+      .map((product) => ({
+        ...product,
+        likes:
+          Number(localStorage.getItem(`likes_${product.id}`)) || product.likes,
+      }));
   }
 
   removeProduct(productId: number) {
