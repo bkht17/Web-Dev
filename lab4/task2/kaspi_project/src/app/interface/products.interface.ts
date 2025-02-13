@@ -5,4 +5,6 @@ export interface Product {
   rating?: number;
   imageUrl?: string;
   link: string;
+  likes: number;
+  categoryid?: number;
 }

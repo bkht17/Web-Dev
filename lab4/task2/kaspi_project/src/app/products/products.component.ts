@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../interface/products.interface';
 
 @Component({
@@ -9,6 +9,48 @@ import { Product } from '../interface/products.interface';
 })
 export class ProductsComponent {
   @Input() product!: Product;
+  @Output() remove = new EventEmitter<number>();
+  @Output() likeToggle = new EventEmitter<{
+    id: number;
+    likes: number;
+    isLiked: boolean;
+  }>();
+
+  isLiked: boolean = false;
+
+  ngOnInit() {
+    this.loadLikes();
+  }
+
+  loadLikes() {
+    const storedLikes = localStorage.getItem(`likes_${this.product.id}`);
+    const storedIsLiked = localStorage.getItem(`liked_${this.product.id}`);
+
+    this.product.likes = storedLikes ? Number(storedLikes) : this.product.likes;
+    this.isLiked = storedIsLiked === 'true';
+  }
+
+  toggleLike() {
+    this.isLiked = !this.isLiked;
+
+    this.product.likes += this.isLiked ? 1 : -1;
+
+    localStorage.setItem(
+      `likes_${this.product.id}`,
+      this.product.likes.toString()
+    );
+    localStorage.setItem(`liked_${this.product.id}`, this.isLiked.toString());
+
+    this.likeToggle.emit({
+      id: this.product.id,
+      likes: this.product.likes,
+      isLiked: this.isLiked,
+    });
+  }
+
+  onRemove() {
+    this.remove.emit(this.product.id);
+  }
 
   shareOn(platform: 'whatsapp' | 'telegram', link: string) {
     const encodedLink = encodeURIComponent(link);

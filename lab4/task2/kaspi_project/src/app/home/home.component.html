@@ -1,0 +1,7 @@
+@for(product of products; track product.id){
+<app-products
+  [product]="product"
+  (remove)="removeProduct($event)"
+  (likeToggle)="updateLikes($event)"
+></app-products>
+}
