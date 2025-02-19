@@ -1,0 +1,33 @@
+.album-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #f4f4f4;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #ddd;
+  }
+}
+
+.album-title {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #c0392b;
+  }
+}

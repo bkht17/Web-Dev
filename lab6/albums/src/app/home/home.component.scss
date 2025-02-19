@@ -1,0 +1,30 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  text-align: center;
+  color: white;
+
+  .content {
+    background: #333;
+    padding: 40px;
+    border-radius: 10px;
+  }
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  background: #04aa6d;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #03925d;
+  }
+}
