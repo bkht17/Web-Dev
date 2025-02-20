@@ -1,30 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AlbumCardComponent } from '../album-card/album-card.component';
 import { AlbumsList } from './albums-list';
-import { HttpClient } from '@angular/common/http';
+import { AlbumListService } from './album-list.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-albums',
-  imports: [RouterModule, AlbumCardComponent],
+  imports: [RouterModule, AlbumCardComponent, CommonModule],
   templateUrl: './albums.component.html',
   styleUrl: './albums.component.scss',
 })
 export class AlbumsComponent {
-  albums: AlbumsList[] = [];
+  private albumService = inject(AlbumListService);
+  private router = inject(Router);
 
-  constructor(private http: HttpClient, private router: Router) {
+  albums: WritableSignal<AlbumsList[]> = signal([]);
+
+  constructor() {
     this.fetchAlbums();
   }
 
   fetchAlbums(): void {
-    this.http
-      .get<AlbumsList[]>('https://jsonplaceholder.typicode.com/albums')
-      .subscribe((data) => (this.albums = data));
+    this.albumService.getAlbums().subscribe((data) => this.albums.set(data));
   }
 
   deleteAlbum(id: number): void {
-    this.albums = this.albums.filter((album) => album.id !== id);
+    this.albumService.deleteAlbum(id).subscribe(() => {
+      this.albums.set(this.albums().filter((album) => album.id !== id));
+    });
   }
 
   openAlbumDetail(id: number): void {

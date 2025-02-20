@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { PhotosList } from './photos-list';
+import { AlbumPhotosService } from './album-photos.service';
 
 @Component({
   selector: 'app-album-photos',
@@ -10,22 +10,20 @@ import { PhotosList } from './photos-list';
   styleUrl: './album-photos.component.scss',
 })
 export class AlbumPhotosComponent {
-  private http = inject(HttpClient);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+  private photoService = inject(AlbumPhotosService);
 
-  albumId = this.route.snapshot.paramMap.get('id');
-  photos = signal<PhotosList[]>([]);
+  albumId = Number(this.route.snapshot.paramMap.get('id'));
+  photos: WritableSignal<PhotosList[]> = signal([]);
 
   constructor() {
     this.fetchPhotos();
   }
 
   fetchPhotos() {
-    this.http
-      .get<PhotosList[]>(
-        `https://jsonplaceholder.typicode.com/albums/${this.albumId}/photos`
-      )
+    this.photoService
+      .getPhotos(this.albumId)
       .subscribe((data) => this.photos.set(data));
   }
 
