@@ -2,17 +2,18 @@ import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AlbumCardComponent } from '../album-card/album-card.component';
 import { AlbumsList } from './albums-list';
-import { AlbumListService } from './album-list.service';
 import { CommonModule } from '@angular/common';
+import { AlbumService } from '../../services/album.service';
 
 @Component({
   selector: 'app-albums',
+  standalone: true,
   imports: [RouterModule, AlbumCardComponent, CommonModule],
   templateUrl: './albums.component.html',
   styleUrl: './albums.component.scss',
 })
 export class AlbumsComponent {
-  private albumService = inject(AlbumListService);
+  private albumService = inject(AlbumService);
   private router = inject(Router);
 
   albums: WritableSignal<AlbumsList[]> = signal([]);

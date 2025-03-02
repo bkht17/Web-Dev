@@ -3,10 +3,11 @@ import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AlbumsList } from '../albums/albums-list';
 import { CommonModule } from '@angular/common';
-import { AlbumDetailService } from './album-detail.service';
+import { AlbumService } from '../../services/album.service';
 
 @Component({
   selector: 'app-album-detail',
+  standalone: true,
   imports: [RouterModule, CommonModule],
   templateUrl: './album-detail.component.html',
   styleUrl: './album-detail.component.scss',
@@ -14,13 +15,13 @@ import { AlbumDetailService } from './album-detail.service';
 export class AlbumDetailComponent {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
-  private albumService = inject(AlbumDetailService);
+  private albumService = inject(AlbumService);
 
   album: WritableSignal<AlbumsList | null> = signal(null);
   editedTitle = signal('');
 
   constructor() {
-    const albumId = Number(this.route.snapshot.params['id']);
+    const albumId = Number(this.route.snapshot.paramMap.get('id'));
     this.fetchAlbum(albumId);
   }
 
@@ -31,7 +32,7 @@ export class AlbumDetailComponent {
     });
   }
 
-  onTitleChange(event: Event) {
+  updateTitle(event: Event) {
     const input = event.target as HTMLInputElement;
     this.editedTitle.set(input.value);
   }

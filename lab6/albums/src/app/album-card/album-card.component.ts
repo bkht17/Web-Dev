@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-album-card',
+  standalone: true,
   imports: [RouterModule],
   templateUrl: './album-card.component.html',
   styleUrl: './album-card.component.scss',

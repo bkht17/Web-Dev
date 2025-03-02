@@ -1,10 +1,11 @@
 import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { PhotosList } from './photos-list';
-import { AlbumPhotosService } from './album-photos.service';
+import { PhotoService } from '../../services/photo.service';
 
 @Component({
   selector: 'app-album-photos',
+  standalone: true,
   imports: [RouterModule],
   templateUrl: './album-photos.component.html',
   styleUrl: './album-photos.component.scss',
@@ -12,7 +13,7 @@ import { AlbumPhotosService } from './album-photos.service';
 export class AlbumPhotosComponent {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
-  private photoService = inject(AlbumPhotosService);
+  private photoService = inject(PhotoService);
 
   albumId = Number(this.route.snapshot.paramMap.get('id'));
   photos: WritableSignal<PhotosList[]> = signal([]);

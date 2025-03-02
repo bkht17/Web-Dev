@@ -5,11 +5,7 @@
 
   <label>
     <strong>Title:</strong>
-    <input
-      [value]="editedTitle()"
-      (input)="onTitleChange($event)"
-      type="text"
-    />
+    <input [value]="editedTitle()" (input)="updateTitle($event)" type="text" />
   </label>
 
   <div class="buttons">
