@@ -1,0 +1,48 @@
+<h1>{{ isEdit ? "Edit" : "Create" }} Company</h1>
+
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      id="name"
+      [(ngModel)]="company.name"
+      name="name"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <textarea
+      id="description"
+      [(ngModel)]="company.description"
+      name="description"
+      required
+    ></textarea>
+  </div>
+
+  <div>
+    <label for="city">City:</label>
+    <input
+      type="text"
+      id="city"
+      [(ngModel)]="company.city"
+      name="city"
+      required
+    />
+  </div>
+
+  <div>
+    <label for="address">Address:</label>
+    <textarea
+      id="address"
+      [(ngModel)]="company.address"
+      name="address"
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit">{{ isEdit ? "Update" : "Create" }}</button>
+  <button type="button" (click)="router.navigate(['/'])">Cancel</button>
+</form>

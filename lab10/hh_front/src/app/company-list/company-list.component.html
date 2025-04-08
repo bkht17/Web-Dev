@@ -1,0 +1,25 @@
+<h1>Companies</h1>
+
+<a routerLink="/companies/create">Create New Company</a>
+<a routerLink="/vacancies/top_ten" style="margin-left: 20px"
+  >View Top 10 Vacancies</a
+>
+
+<ul>
+  @for (company of companies; track company.id) {
+  <li>
+    <a [routerLink]="['/companies', company.id, 'vacancies']">
+      {{ company.name }} - {{ company.city }}
+    </a>
+    <button
+      [routerLink]="['/companies', company.id, 'edit']"
+      style="margin-left: 10px"
+    >
+      Edit
+    </button>
+    <button (click)="deleteCompany(company.id)" style="margin-left: 5px">
+      Delete
+    </button>
+  </li>
+  }
+</ul>

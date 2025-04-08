@@ -1,0 +1,26 @@
+@if (company) {
+<h1>Vacancies for {{ company.name }}</h1>
+
+<a routerLink="/">Back to companies</a>
+<a
+  [routerLink]="['/companies', company.id, 'vacancies', 'create']"
+  style="margin-left: 20px"
+  >Create New Vacancy</a
+>
+
+<ul>
+  @for (vacancy of vacancies; track vacancy.id) {
+  <li>
+    <h3>{{ vacancy.name }}</h3>
+    <p>{{ vacancy.description }}</p>
+    <p>Salary: ${{ vacancy.salary }}</p>
+    <button [routerLink]="['/vacancies', vacancy.id, 'edit']">Edit</button>
+    <button (click)="deleteVacancy(vacancy.id)" style="margin-left: 5px">
+      Delete
+    </button>
+  </li>
+  }
+</ul>
+} @else {
+<p>Loading...</p>
+}

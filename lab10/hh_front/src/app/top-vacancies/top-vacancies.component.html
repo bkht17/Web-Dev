@@ -1,0 +1,19 @@
+<h1>Top 10 Vacancies by Salary</h1>
+
+<a routerLink="/">Back to companies</a>
+
+<ul>
+  @for (vacancy of vacancies; track vacancy.id) {
+  <li>
+    <h3>{{ vacancy.name }}</h3>
+    <p>{{ vacancy.description }}</p>
+    <p>Salary: ${{ vacancy.salary }}</p>
+    <p>
+      Company:
+      <a [routerLink]="['/companies', vacancy.company, 'vacancies']">
+        View company vacancies
+      </a>
+    </p>
+  </li>
+  }
+</ul>
